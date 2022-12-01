@@ -34,7 +34,11 @@ class PelotaPong:
             self.dir_y = -self.dir_y
         if self.y + self.alto >= Margen_V:
             self.dir_y = -self.dir_y
-
+    def reiniciar(self):
+        self.x = Margen_H / 2 - self.ancho / 2
+        self.y = Margen_V / 2 - self.alto / 2
+        self.dir_x = -self.dir_x
+        self.dir_y = random.choice([-5, 5])
 
 def main():
     # Inicialización de Pygame
