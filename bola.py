@@ -41,7 +41,7 @@ def main():
     pygame.init()
 
     # Inicialización de la superficie de dibujo (display surface)
-    ventana = pygame.display.set_mode((Margen_V, Margen_H))
+    ventana = pygame.display.set_mode((Margen_H, Margen_V))
     pygame.display.set_caption("Pong")
 
     pelota = PelotaPong("bola_roja.png")
@@ -63,7 +63,6 @@ def main():
         pygame.time.Clock().tick(FPS)
 
     pygame.quit()
-
 
 if __name__ == "__main__":
     main()
