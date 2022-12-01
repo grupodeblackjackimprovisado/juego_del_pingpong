@@ -15,7 +15,7 @@ def main():
 
     # Inicialización de la superficie de dibujo (display surface)
     ventana = pygame.display.set_mode((Margen_H, Margen_V))
-    pygame.display.set_caption("Pong 9")
+    pygame.display.set_caption("Pong")
 
     # Inicialización de la fuente
     fuente = pygame.font.Font(None, 60)
