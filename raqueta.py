@@ -1,9 +1,9 @@
-from bola import PelotaPong
-from bola import Margen_H
-from bola import Margen_V
 import random
 import pygame
 from pygame.locals import QUIT
+from bola import PelotaPong
+from bola import Margen_H
+from bola import Margen_V
 class RaquetaPong:
     def __init__(self):
         self.imagen = pygame.image.load("raqueta.png").convert_alpha()
