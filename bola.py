@@ -26,10 +26,10 @@ class PelotaPong:
         self.y += self.dir_y
 
     def rebotar(self):
-        if self.x <= 0:
-            self.dir_x = -self.dir_x
-        if self.x + self.ancho >= Margen_H:
-            self.dir_x = -self.dir_x
+        if self.x <= -self.ancho:
+            self.reiniciar()
+        if self.x >= Margen_H:
+            self.reiniciar()
         if self.y <= 0:
             self.dir_y = -self.dir_y
         if self.y + self.alto >= Margen_V:
@@ -39,34 +39,3 @@ class PelotaPong:
         self.y = Margen_V / 2 - self.alto / 2
         self.dir_x = -self.dir_x
         self.dir_y = random.choice([-5, 5])
-
-def main():
-    # Inicialización de Pygame
-    pygame.init()
-
-    # Inicialización de la superficie de dibujo (display surface)
-    ventana = pygame.display.set_mode((Margen_H, Margen_V))
-    pygame.display.set_caption("Pong")
-
-    pelota = PelotaPong("bola_roja.png")
-
-    # Bucle principal
-    jugando = True
-    while jugando:
-        pelota.mover()
-        pelota.rebotar()
-
-        ventana.fill(Fondo_Blanco)
-        ventana.blit(pelota.imagen, (pelota.x, pelota.y))
-
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                jugando = False
-
-        pygame.display.flip()
-        pygame.time.Clock().tick(FPS)
-
-    pygame.quit()
-
-if __name__ == "__main__":
-    main()
