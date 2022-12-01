@@ -1,12 +1,13 @@
 import random
 import pygame
 from pygame.locals import QUIT
-Margen_V = 600
-Margen_H = 800
+Margen_V = 800
+Margen_H = 600
+FPS = 60
 Fondo_Blanco = (225, 225, 225)
 class PelotaPong:
     def __init__(self, fichero_imagen):
-# Imagen de la Pelota
+        # Imagen de la Pelota
         self.imagen = pygame.image.load(fichero_imagen).convert_alpha()
 
         # Dimensiones de la Pelota
@@ -19,7 +20,8 @@ class PelotaPong:
         # Dirección de movimiento de la Pelota
         self.dir_x = random.choice([-5, 5])
         self.dir_y = random.choice([-5, 5])
-def mover(self):
+
+    def mover(self):
         self.x += self.dir_x
         self.y += self.dir_y
 
@@ -29,8 +31,8 @@ def main():
     pygame.init()
 
     # Inicialización de la superficie de dibujo (display surface)
-    ventana = pygame.display.set_mode((VENTANA_HORI, VENTANA_VERT))
-    pygame.display.set_caption("Pong 2")
+    ventana = pygame.display.set_mode((Margen_V, Margen_H))
+    pygame.display.set_caption("Pong")
 
     pelota = PelotaPong("bola_roja.png")
 
@@ -39,7 +41,7 @@ def main():
     while jugando:
         pelota.mover()
 
-        ventana.fill()
+        ventana.fill(Fondo_Blanco)
         ventana.blit(pelota.imagen, (pelota.x, pelota.y))
 
         for event in pygame.event.get():
