@@ -26,3 +26,17 @@ def main():
         pygame.time.Clock().tick(FPS)
 
     pygame.quit()
+if __name__ == "__main__":
+    main()
+    jugando = True
+    while jugando:
+        ventana.fill(Fondo_Blanco)
+
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                jugando = False
+
+        pygame.display.flip()
+        pygame.time.Clock().tick(FPS)
+
+    pygame.quit()
