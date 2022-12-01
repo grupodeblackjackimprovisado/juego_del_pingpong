@@ -26,10 +26,10 @@ class PelotaPong:
         self.y += self.dir_y
 
     def rebotar(self):
-        if self.x <= 0:
-            self.dir_x = -self.dir_x
-        if self.x + self.ancho >= Margen_H:
-            self.dir_x = -self.dir_x
+        if self.x <= -self.ancho:
+            self.reiniciar()
+        if self.x >= Margen_H:
+            self.reiniciar()
         if self.y <= 0:
             self.dir_y = -self.dir_y
         if self.y + self.alto >= Margen_V:
