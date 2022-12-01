@@ -24,6 +24,15 @@ class PelotaPong:
     def mover(self):
         self.x += self.dir_x
         self.y += self.dir_y
+    def rebotar(self):
+        if self.dir_x <= 0:
+            self.dir_x = -self.dir_x
+        elif self.dir_y <= 0:
+            self.dir_y = -self.dir_y
+        elif self.x + self.ancho >= Margen_H:
+            self.dir_x = -self.dir_x
+        elif self.y + self.alto >= Margen_V:
+            self.dir_y = -self.dir_y
 
 
 def main():
@@ -40,6 +49,7 @@ def main():
     jugando = True
     while jugando:
         pelota.mover()
+        pelota.rebotar()
 
         ventana.fill(Fondo_Blanco)
         ventana.blit(pelota.imagen, (pelota.x, pelota.y))
