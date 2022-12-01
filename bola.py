@@ -1,10 +1,10 @@
 import random
 import pygame
 from pygame.locals import QUIT
-Margen_V = 800
-Margen_H = 600
+Margen_V = 600
+Margen_H = 800
 FPS = 60
-Fondo_Blanco = (225, 225, 225)
+Fondo_Blanco = (255, 255, 255)
 class PelotaPong:
     def __init__(self, fichero_imagen):
         # Imagen de la Pelota
@@ -24,14 +24,15 @@ class PelotaPong:
     def mover(self):
         self.x += self.dir_x
         self.y += self.dir_y
+
     def rebotar(self):
-        if self.dir_x <= 0:
+        if self.x <= 0:
             self.dir_x = -self.dir_x
-        elif self.dir_y <= 0:
+        if self.x + self.ancho >= Margen_H:
+            self.dir_x = -self.dir_x
+        if self.y <= 0:
             self.dir_y = -self.dir_y
-        elif self.x + self.ancho >= Margen_H:
-            self.dir_x = -self.dir_x
-        elif self.y + self.alto >= Margen_V:
+        if self.y + self.alto >= Margen_V:
             self.dir_y = -self.dir_y
 
 
